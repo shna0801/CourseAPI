@@ -1,12 +1,13 @@
 package com.course.Entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,7 +23,7 @@ public class Person {
 	private String lname;
 	private int age;
 
-	@OneToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "addressId")
 	private Address address;
 
@@ -75,10 +76,6 @@ public class Person {
 
 	public void setAddress(Address address) {
 		this.address = address;
-	}
-
-	public int getAddressId() {
-		return address.getAddressId();
 	}
 
 }

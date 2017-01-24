@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.course.Entity.Person;
-import com.course.dto.PersonDTO;
 import com.course.service.PersonService;
 
 @RestController
@@ -19,12 +17,6 @@ public class PersonController {
 	@Autowired
 	private PersonService personservice;
 
-//	@RequestMapping("/homePerson")
-//	public ModelAndView homePerson() {
-//		ModelAndView mv = new ModelAndView("PersonDTO");
-//		return mv;
-//	}
-	
 	@RequestMapping(value = "/person", method = RequestMethod.GET)
 	public List<Person> getPerson() {
 		return personservice.getAllPerson();
@@ -36,7 +28,7 @@ public class PersonController {
 	}
 
 	@RequestMapping(value = "/person", method = RequestMethod.POST)
-	public void addPerson( @RequestBody PersonDTO person) {
+	public void addPerson( @RequestBody Person person) {
 		personservice.addPerson(person);
 	}
 

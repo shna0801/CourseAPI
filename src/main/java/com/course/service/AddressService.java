@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.course.Data.CourseRepoAddress;
 import com.course.Entity.Address;
-import com.course.Entity.Person;
 
 @Service
 public class AddressService {
