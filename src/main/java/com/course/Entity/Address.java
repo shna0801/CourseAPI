@@ -1,5 +1,6 @@
 package com.course.Entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,13 +9,16 @@ import javax.persistence.Id;
 @Entity
 public class Address {
 
-	private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "addressId")
+	private int addressId;
 	private String city;
 	private String state;
 	private String street;
 	private int zipCode;
 
-	public Address() {
+	public Address(){
 
 	}
 
@@ -26,14 +30,12 @@ public class Address {
 		this.zipCode = zipCode;
 	}
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	public int getId() {
-		return id;
+	public int getAddressId() {
+		return addressId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setAddressId(int addressId) {
+		this.addressId = addressId;
 	}
 
 	public String getCity() {
