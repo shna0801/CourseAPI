@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.course.Entity.Person;
+import com.course.dto.PersonDTO;
 import com.course.service.PersonService;
 
 @RestController
@@ -20,26 +21,26 @@ public class PersonController {
 
 //	@RequestMapping("/homePerson")
 //	public ModelAndView homePerson() {
-//		ModelAndView mv = new ModelAndView("Person");
+//		ModelAndView mv = new ModelAndView("PersonDTO");
 //		return mv;
 //	}
 	
-	@RequestMapping("/getAllperson")
+	@RequestMapping(value = "/person", method = RequestMethod.GET)
 	public List<Person> getPerson() {
 		return personservice.getAllPerson();
 	}
 
-	@RequestMapping("/getPersonById/{id}")
+	@RequestMapping(value = "/person/{id}", method = RequestMethod.GET)
 	public Person getPersonById(@PathVariable int id) {
 		return personservice.getPersonById(id);
 	}
 
-	@RequestMapping(value = "/addPerson", method = RequestMethod.POST)
-	public void addPerson( @RequestBody Person person) {
+	@RequestMapping(value = "/person", method = RequestMethod.POST)
+	public void addPerson( @RequestBody PersonDTO person) {
 		personservice.addPerson(person);
 	}
 
-	@RequestMapping("/deletePersonById/{id}")
+	@RequestMapping(value = "/person/{id}", method = RequestMethod.DELETE)
 	public void deletePersonById(@PathVariable int id) {
 		personservice.deletePersonById(id);
 	}

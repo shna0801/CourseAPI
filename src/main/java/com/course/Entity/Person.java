@@ -19,9 +19,7 @@ public class Person {
 	private int id;
 
 	private String fname;
-
 	private String lname;
-
 	private int age;
 
 	@OneToOne

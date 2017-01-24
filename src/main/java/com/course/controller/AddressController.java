@@ -15,27 +15,27 @@ import com.course.service.AddressService;
 @RestController
 public class AddressController {
 
-	@Autowired
-	private AddressService addressservice;
+    @Autowired
+    private AddressService addressservice;
 
-	@RequestMapping("/getAllAddress")
-	public List<Address> getAddress() {
-		return addressservice.getAllAddress();
-	}
+    @RequestMapping(value = "/address", method = RequestMethod.GET)
+    public List<Address> getAddress() {
+        return addressservice.getAllAddress();
+    }
 
-	@RequestMapping("/getAddressById/{id}")
-	public Address getAddressById(@PathVariable int id) {
-		return addressservice.getAddressById(id);
-	}
+    @RequestMapping(value = "/address/{id}", method = RequestMethod.GET)
+    public Address getAddressById(@PathVariable int id) {
+        return addressservice.getAddressById(id);
+    }
 
-	@RequestMapping(value = "/addAddress", method = RequestMethod.POST)
-	public void addAddress( @RequestBody Address address) { 
-		addressservice.addAddress(address);
-	}
-	
-	@RequestMapping("/deleteAddressById/{id}")
-	public void deleteAddressById(@PathVariable int id) {
-		addressservice.deleteAddressById(id);
-	}
+    @RequestMapping(value = "/address", method = RequestMethod.POST)
+    public void addAddress(@RequestBody Address address) {
+        addressservice.addAddress(address);
+    }
+
+    @RequestMapping(value = "/address/{id}", method = RequestMethod.DELETE)
+    public void deleteAddressById(@PathVariable int id) {
+        addressservice.deleteAddressById(id);
+    }
 
 }
